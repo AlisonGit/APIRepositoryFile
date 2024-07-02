@@ -1,22 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+# .github/workflows/test.yml
+on
+name:Test
 
-name: CI
-
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-  # .github/workflows/test.yml
 jobs:
   Linux:
     name: Validate API spec
-    runs-on: windows-latest
+    runs-on: widnows-latest
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      - uses: kong/setup-inso@v1
+        with:
+          inso-version: 3.5
       - name: Lint
-        run: inso lint spec "NYT Lists Test By Date and Name" --ci
+        run: inso lint spec "Designer Demo" --ci
       - name: Run test suites
-        run: inso run test "NYT Lists Test By Date and Name" --env NYT_BOOKS_DEV --ci
+        run: inso run test "Designer Demo" --env UnitTest --ci
