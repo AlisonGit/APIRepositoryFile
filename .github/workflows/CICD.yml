@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v1
       - uses: kong/setup-inso@v1
         with:
-          inso-version: dev
+          inso-version: 9.3.1
       - name: Lint
         run: inso lint spec "NYT Lists Test By Date and Name" --ci
       - name: Run test suites
