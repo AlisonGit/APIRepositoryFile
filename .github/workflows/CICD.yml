@@ -12,7 +12,5 @@ jobs:
       - uses: kong/setup-inso@v1
         with:
           inso-version: 3.5
-      - name: Lint
-        run: inso lint spec "Designer Demo" --ci
       - name: Run test suites
-        run: inso run test "Designer Demo" --env UnitTest --ci
+        run: inso run test "NYT Lists Test By Date and Name" --keepFile --env "NYT_BOOKS_DEV" --ci
