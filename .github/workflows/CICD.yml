@@ -1,9 +1,9 @@
-# .github/workflows/test.yml
+# .github/workflows/CICD.yml
 on
 name:Test
 
 jobs:
-  Linux:
+  windows:
     name: Validate API spec
     runs-on: widnows-latest
     steps:
