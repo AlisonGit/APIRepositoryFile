@@ -15,4 +15,4 @@ jobs:
         with:
           inso-version: 3.5
       - name: Run test suites
-        run: inso run test "NYT Lists Test By Date and Name" --keepFile --env "NYT_BOOKS_DEV" --ci
+        run: inso run test "NYT Lists Test By Date and Name" --keepFile --env "NYT_BOOKS_DEV" --ci --verbose
