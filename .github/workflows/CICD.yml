@@ -1,11 +1,9 @@
 # .github/workflows/CICD.yml
-on
 name:Test
-
-jobs:
-  windows:
+jobs
+  Windows:
     name: Validate API spec
-    runs-on: widnows-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v1
