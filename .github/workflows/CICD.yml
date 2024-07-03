@@ -1,6 +1,10 @@
 # .github/workflows/CICD.yml
-name:Test
-jobs
+name:
+  Test
+on: 
+  push:
+
+jobs:
   Windows:
     name: Validate API spec
     runs-on: windows-latest
