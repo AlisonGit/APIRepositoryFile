@@ -17,4 +17,4 @@ jobs:
       - name: Run test suites
         working-directory: C:\Windows\System32
         shell: cmd
-        run: C:\INSO\cinso.bat
+        run: "C:\\INSO\\cinso.bat"
