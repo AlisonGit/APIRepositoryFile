@@ -15,4 +15,4 @@ jobs:
         with:
           inso-version: 2.4.0
       - name: Run test suites
-        run: inso run test "Returns 200" --keepFile --env "NYT_BOOKS_DEV" --verbose
+        run: inso run test "NewYorkTimes_Books" --keepFile --env "NYT_BOOKS_DEV" --verbose
