@@ -15,5 +15,4 @@ jobs:
         with:
           inso-version: 3.5
       - name: Run test suites
-        //run: inso run test "NYT Lists Test By Date and Name" --env "NYT_BOOKS_DEV" --verbose --ci
         run: c:\inso\cinso.bat
