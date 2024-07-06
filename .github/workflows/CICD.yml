@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v1
       - uses: kong/setup-inso@v1
         with:
-          inso-version: 2.4.0
+          inso-version: 9.3
       - name: Run test suites
         run: inso run test "NYT Lists Test By Date and Name" --keepFile --env "NYT_BOOKS_DEV" --verbose
