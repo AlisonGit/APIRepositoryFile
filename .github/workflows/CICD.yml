@@ -15,4 +15,4 @@ jobs:
         with:
           inso-version: 3.5
       - name: Run test suites
-        run: C:\INSO\cinso.bat
+        run: cinso.bat
