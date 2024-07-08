@@ -16,4 +16,4 @@ jobs:
           inso-version: 3.5
       - name: Run test suites
         working-directory: c:\..INSO
-        run: cinso.bat
+        run: Start-Process -FilePath "C:\inso\cinso.bat" -Wait -NoNewWindow
