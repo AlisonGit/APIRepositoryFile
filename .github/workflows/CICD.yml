@@ -15,4 +15,5 @@ jobs:
         with:
           inso-version: 3.5
       - name: Run test suites
-        run: C:\INSO\cinso.bat
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: ./cinso.bat
