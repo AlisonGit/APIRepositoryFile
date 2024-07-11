@@ -14,6 +14,7 @@ jobs:
       - uses: kong/setup-inso@v1
         with:
           inso-version: 3.5
+      - name: Lint
+        run: inso lint spec "Article Search" --ci
       - name: Run test suites
-        working-directory: C:\Program Files\PowerShell\7
-        run: Start-Process -FilePath "C:\INSO\cinso.bat" -Wait 
+        run: inso run test "Article Search --env Swagger env --ci
