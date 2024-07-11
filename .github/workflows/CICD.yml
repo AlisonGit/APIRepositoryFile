@@ -17,4 +17,4 @@ jobs:
       - name: Lint
         run: inso lint spec "Insomnia_2024-07-11.json" --ci
       - name: Run test suites
-        run: inso run test "Article Search" --env Swagger env --ci
+        run: inso run test "Article Search" --env Swagger env --ci --src "Insomnia_2024-07-11.json" 
