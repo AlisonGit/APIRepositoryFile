@@ -15,6 +15,6 @@ jobs:
         with:
           inso-version: 3.5
       - name: Lint
-        run: inso lint spec "Article Search" --ci
+        run: inso lint spec "NYT_ArticleSearch" --ci
       - name: Run test suites
         run: inso run test "Article Search --env Swagger env --ci
