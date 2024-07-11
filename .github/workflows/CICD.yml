@@ -1,6 +1,6 @@
 # .github/workflows/CICD.yml
 name:
-  Test
+  Tests
 on: 
   push:
 
