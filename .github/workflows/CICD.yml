@@ -5,7 +5,7 @@ on:
   push:
 
 jobs:
-  Windows:
+  RunsTests:
     name: Validate API spec
     runs-on: windows-latest
     steps:
