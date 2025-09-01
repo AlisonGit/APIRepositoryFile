@@ -15,6 +15,6 @@ jobs:
         with:
           inso-version: 2.4.0
       - name: Lint
-        run: inso lint spec "Insomnia_2025-09-01.json" --ci
+        run: inso lint spec "Insomnia_2025-09-01.yaml" --ci
       - name: Run test suites
-        run: inso run test "NYTTopStoriesTests" --env "Swagger env" --ci --src "Insomnia_2025-09-01.json" --verbose --keepFile
+        run: inso run test "NYTTopStoriesTests" --env "Swagger env" --ci --src "Insomnia_2025-09-01.yank" --verbose --keepFile
