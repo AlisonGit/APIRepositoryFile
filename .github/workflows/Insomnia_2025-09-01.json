@@ -1,12 +1,12 @@
 {
-  "type": "spec.insomnia.rest/5.0",
+  "type": "spec.insomnia.rest/4.0",
   "name": "NYTTopStories",
   "meta": {
     "id": "wrk_e0a866bb72cd4c07983373eebac66091",
     "created": 1756649649108,
     "modified": 1756649649108,
     "description": ""
-  },
+  }4
   "collection": [
     {
       "name": "Stories",
