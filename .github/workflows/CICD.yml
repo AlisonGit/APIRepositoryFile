@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v1
-      - uses: kong/setup-inso@v2.328.0
+      - uses: kong/setup-inso@v2
         with:
-          inso-version: 2.4.0
+          inso-version: 2
       - name: Lint
         run: inso lint spec "Insomnia_2025-09-01.yaml" --ci
       - name: Run test suites
