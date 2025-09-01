@@ -14,7 +14,7 @@ jobs:
       - uses: kong/setup-inso@v2
         with:
           inso-version: 11.5.0
-      - name: Lint
+      - name: Lint           
         run: inso lint spec "Insomnia_2025-09-01.yaml" --ci
-      - name: Run test suites
-        run: inso run test "NYTTopStoriesTests" --env "Swagger env" --ci --src "Insomnia_2025-09-01.yank" --verbose --keepFile
+      - name: Run test suites                                                           
+        run: inso run test "NYTTopStoriesTests" --env "Swagger env" --ci --src "Insomnia_2025-09-01.yaml" --verbose --keepFile
