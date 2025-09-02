@@ -15,7 +15,7 @@ jobs:
         with:
           inso-version: 11.5.0
       - name: Lint           
-        run: inso lint spec --workingDir ""c:\Users\abost\AppData\Roaming\Insomnia\Insomnia_2025-09-02.yaml" --ci
+        run: inso lint spec --workingDir "c:\Users\abost\AppData\Roaming\Insomnia\Insomnia_2025-09-02.yaml" --ci
       - name: Run test suites                                                           
         run: inso run test "NYTTopStoriesTests" -workingDir "c:\Users\abost\AppData\Roaming\Insomnia\Insomnia_2025-09-02.yaml" --env "Swagger env" --verbose
         
