@@ -1,0 +1,357 @@
+type: spec.insomnia.rest/5.0
+name: NYTTopStories
+meta:
+  id: wrk_e0a866bb72cd4c07983373eebac66091
+  created: 1756649649108
+  modified: 1756649649108
+  description: ""
+collection:
+  - name: Stories
+    meta:
+      id: fld_f8846e36ff924889b6ba9aefef2935b5
+      created: 1756649675368
+      modified: 1756671859191
+      sortKey: -1756649675368
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/{{ _.section }}.json"
+        name: Top Stories
+        meta:
+          id: req_1f6ce565450d4b349a9d528318cbe9d9
+          created: 1756649675370
+          modified: 1756669778867
+          isPrivate: false
+          description: >
+            The Top Stories API returns an array of articles currently on the
+            specified section.
+          sortKey: -1756649675370
+        method: GET
+        parameters:
+          - name: api-key
+            value: "{{ _['api-key'] }}"
+        scripts:
+          preRequest: |-
+            if(insomnia.environment.name != 'Swagger env'){
+
+            insomnia.environment.set('section', 'nyregion');
+            }else{
+            	console.log("The environement is Swagger env.");
+
+            insomnia.environment.set('section', 'science');
+            	
+            }
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_13fe3ff448830d8ad7c021d4bafb0775eb576d09
+    created: 1756649649116
+    modified: 1756671859181
+environments:
+  name: Base Environment
+  meta:
+    id: env_13fe3ff448830d8ad7c021d4bafb0775eb576d09
+    created: 1756649649115
+    modified: 1756671859186
+    isPrivate: false
+  subEnvironments:
+    - name: Swagger env
+      meta:
+        id: env_55eea181d97a4992adaf76a5376b096f
+        created: 1756649675367
+        modified: 1756671859184
+        isPrivate: false
+        sortKey: 1756649675367
+      data:
+        base_path: /svc/topstories/v2
+        scheme: https
+        host: api.nytimes.com
+        api-key: IcLdhH3I2OuAaRgqAAzojGlqxnhE1RSO
+        sections: us
+        section: science
+        base_url: https://api.nytimes.com/svc/topstories/v2
+        environ: QA
+spec:
+  contents:
+    swagger: "2.0"
+    basePath: /svc/topstories/v2
+    host: api.nytimes.com
+    schemes:
+      - https
+    info:
+      version: 2.0.0
+      title: Top Stories
+      description: >
+        The Top Stories API returns an array of articles currently on the
+        specified section (arts, business, ...).
+
+
+        ```
+
+        /{section}.json
+
+        ```
+
+
+        Use home to get articles currently on the homepage.
+
+
+        ```
+
+        /home.json
+
+        ```
+
+
+        The possible section value are: _arts, automobiles, books/review,
+        business, fashion, food, health, home, insider, magazine, movies,
+        nyregion, obituaries, opinion, politics, realestate, science, sports,
+        sundayreview, technology, theater, t-magazine, travel, upshot, us, and
+        world_.
+
+
+        ## Example Calls
+
+        ```
+
+        https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=yourkey
+
+        https://api.nytimes.com/svc/topstories/v2/home.json?api-key=yourkey
+
+        https://api.nytimes.com/svc/topstories/v2/science.json?api-key=yourkey
+
+        https://api.nytimes.com/svc/topstories/v2/us.json?api-key=yourkey
+
+        https://api.nytimes.com/svc/topstories/v2/world.json?api-key=yourkey
+
+        ```
+    produces:
+      - application/json
+    paths:
+      /{section}.json:
+        get:
+          summary: Top Stories
+          description: >
+            The Top Stories API returns an array of articles currently on the
+            specified section.
+          parameters:
+            - name: section
+              in: path
+              description: The section the story appears in.
+              required: true
+              type: string
+              default: home
+              enum:
+                - arts
+                - automobiles
+                - books/review
+                - business
+                - fashion
+                - food
+                - health
+                - home
+                - insider
+                - magazine
+                - movies
+                - nyregion
+                - obituaries
+                - opinion
+                - politics
+                - realestate
+                - science
+                - sports
+                - sundayreview
+                - technology
+                - theater
+                - t-magazine
+                - travel
+                - upshot
+                - us
+                - world
+          tags:
+            - Stories
+          responses:
+            "200":
+              description: An array of articles.
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  copyright:
+                    type: string
+                  section:
+                    type: string
+                  last_updated:
+                    type: string
+                  num_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/definitions/Article"
+            "401":
+              description: Unauthorized request.  Make sure api-key is set.
+            "429":
+              description: Too many requests.  You reached your per minute or per day rate
+                limit.
+    definitions:
+      Article:
+        type: object
+        properties:
+          section:
+            type: string
+          subsection:
+            type: string
+          title:
+            type: string
+          abstract:
+            type: string
+          url:
+            type: string
+          uri:
+            type: string
+          byline:
+            type: string
+          item_type:
+            type: string
+          updated_date:
+            type: string
+          created_date:
+            type: string
+          published_date:
+            type: string
+          material_type_facet:
+            type: string
+          kicker:
+            type: string
+          des_facet:
+            type: array
+            items:
+              type: string
+          org_facet:
+            type: array
+            items:
+              type: string
+          per_facet:
+            type: array
+            items:
+              type: string
+          geo_facet:
+            type: array
+            items:
+              type: string
+          multimedia:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                format:
+                  type: string
+                height:
+                  type: integer
+                width:
+                  type: integer
+                type:
+                  type: string
+                subtype:
+                  type: string
+                caption:
+                  type: string
+                copyright:
+                  type: string
+          short_url:
+            type: string
+    securityDefinitions:
+      apikey:
+        type: apiKey
+        name: api-key
+        in: query
+  meta:
+    id: spc_68b8cf85afc74a01ac7ab529cbe7fc54
+    created: 1756649658746
+    modified: 1756649658746
+testSuites:
+  - name: NYTTopStoriesTests
+    meta:
+      id: uts_2c4bbdb5fc36401b8de7e595e02fb00f
+      created: 1756658389164
+      modified: 1756671883592
+      sortKey: -1756658389164
+    tests:
+      - name: SecondTest
+        meta:
+          id: ut_ae9e73cdc5dc433095584070b073bc91
+          created: 1756658419425
+          modified: 1756672099149
+          sortKey: -1756658419425
+        requestId: req_1f6ce565450d4b349a9d528318cbe9d9
+        code: >+
+          const response = await insomnia.send();
+
+          expect(response.status).to.equal(200);
+
+
+
+
+          const body = JSON.parse(response.data);
+
+
+
+
+          try {
+            const body = JSON.parse(response.data);
+            console.log(body);
+          } catch (error) {
+            console.error("Failed to parse JSON:", error);
+          }
+
+
+
+          const numberOfResults = body.num_results
+
+
+
+          //nsole.log("The nbr  of "+numberOfBooks);
+
+
+          expect(numberOfResults).to.be.greaterThan(0);
+
+
+
+          var absExpected = "Every week, we’ll bring you stories that capture
+          the wonders of the human body, nature and the cosmos.";
+
+
+          var  absFound = body.results[0].abstract;
+
+
+          expect(absFound).to.equal(absExpected);
+
+
+
+      - name: Returns 200
+        meta:
+          id: ut_c625a999215d4030b08ba2aefbff30c5
+          created: 1756658428651
+          modified: 1756671592770
+          sortKey: -1756658428651
+        requestId: req_1f6ce565450d4b349a9d528318cbe9d9
+        code: |-
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(200);
+  - name: New Suite
+    meta:
+      id: uts_9a138e2bc03741e69fb02244805b57b1
+      created: 1756671444158
+      modified: 1756671444158
+      sortKey: -1756671444158
